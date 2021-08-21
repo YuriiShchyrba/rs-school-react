@@ -1,0 +1,138 @@
+.search_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 400px;
+    margin: auto;
+  }
+
+
+  .search_bar__icon{
+    width: 27px;
+    position: absolute;
+    left: 8px;
+  }
+
+
+  .search_bar__input{
+    width: 295px;
+    background-color: blanchedalmond;
+    border-radius: 8px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 0 0px 0 40px;
+    }
+
+    .search_bar__btn{
+      width: 75px;
+      height: 35px;
+      border-radius: 12px;
+    }
+
+    .cards_list{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-gap: 20px;
+      list-style: none;
+    }
+
+    .card{
+      width: 300px;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px solid;
+      border-radius: 9px;
+    }
+
+    .card__img{
+      height: 45%;
+    }
+
+    .card__general_info{
+      padding:  0 20px 0 20px;
+    }
+
+    .general_info__header{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .general_info__creator{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 25px;
+    }
+
+    .card__separation_line{
+      width: 95%;
+      height: 2px;
+      margin:auto;
+      background-color: black;
+    }
+
+    .card__category{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 80%;
+      margin: 20px;
+    }
+
+    .card__reaction{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid grey;
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .reaction__likes{
+      width: 30%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .likes__icon{
+      filter: invert(8%) sepia(97%) saturate(6588%) hue-rotate(
+        245deg
+        ) brightness(99%) contrast(147%);
+    }
+
+    .likes__icon:hover{
+      cursor: pointer;
+    }
+
+    .reaction__views{
+      width: 35%;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .views__icon{
+      filter: invert(75%) sepia(48%) saturate(575%) hue-rotate(2deg) brightness(86%) contrast(98%);
+    }
+
+    .views__icon{
+      cursor: pointer;
+    }
+
+    .reaction__favourite{
+      border: 2px solid grey;
+      display: flex;
+      height: 100%;
+      width: 19%;
+      justify-content: center;
+      border-right: none;
+      border-top: none;
+      border-bottom: none;
+      align-items: center;
+    }
+
+    .favourite__icon:hover{
+      cursor: pointer;
+    }
