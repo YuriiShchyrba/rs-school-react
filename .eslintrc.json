@@ -33,7 +33,9 @@
         "no-process-exit":"off",
         "object-shorthand":"off",
         "class-methods-use-this":"off",
-        "prefer-destructuring":"off",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "required": {
+            "some": [ "nesting", "id" ]
+        }
     }
 }

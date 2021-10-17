@@ -13,12 +13,14 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   devServer: {
     open: true,
     hot: true,
-    port: 8080,
+    port: 3000,
     static: path.join(__dirname, 'public'),
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({

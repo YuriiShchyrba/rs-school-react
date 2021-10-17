@@ -1,45 +1,15 @@
 import React from 'react';
+import Header from './components/header/Header';
+import Main from './components/main/Main';
+import Footer from './components/footer/Footer';
 import './style.css';
-import SearchBar from './components/search_bar';
-import Card from './components/card/card';
 
-const App = (props) => {
-  const arr = props.state.cards;
+const App = () => {
   return (
     <div>
-      <SearchBar />
-      <ul className="cards_list">
-        <li>
-          <Card cardInfo={arr[0]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[1]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[2]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[3]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[4]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[5]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[6]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[7]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[8]} />
-        </li>
-        <li>
-          <Card cardInfo={arr[9]} />
-        </li>
-      </ul>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 };

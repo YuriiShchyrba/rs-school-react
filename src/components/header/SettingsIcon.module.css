@@ -1,0 +1,13 @@
+.settings_icon{
+    /* background-image: url(../../assets/settings.svg); */
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+  }
+
+  .settings_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

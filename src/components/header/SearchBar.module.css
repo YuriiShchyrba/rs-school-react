@@ -1,0 +1,35 @@
+.search_bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 400px;
+    margin: auto;
+  }
+
+
+  .search_bar__icon{
+    width: 27px;
+    position: absolute;
+    left: 8px;
+    cursor: pointer;
+  }
+
+
+  .search_bar__input{
+    width: 295px;
+    background-color: #1F2833;
+    border-radius: 8px;
+    border: 1px solid black;
+    height: 35px;
+    padding: 0 0px 0 40px;
+    }
+
+    .search_bar__btn{
+      width: 75px;
+      height: 35px;
+      border-radius: 12px;
+      color:#C5C6C7;
+      background-color: #1F2833;
+      border-color: #66FCF1;
+    }
