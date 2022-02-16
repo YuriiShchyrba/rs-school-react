@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Footer from './components/footer/Footer';
 import './style.css';
+import HeaderContainer from './components/header/HeaderContainer';
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <HeaderContainer />
       <Main />
       <Footer />
     </div>

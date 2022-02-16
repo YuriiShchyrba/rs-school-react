@@ -1,8 +1,6 @@
-import React from 'react';
 import Posts from './Posts';
 import {
   addPostActionCreator,
-  changeNewPostSymbolActionCreator,
 } from '../../../redux/posts-reducer';
 import { connect } from 'react-redux';
 
@@ -14,14 +12,10 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    addPost: ()=>{
-      let action = addPostActionCreator();
+    addPost: (message)=>{
+      let action = addPostActionCreator(message);
       dispatch(action);
     },
-    changeNewPostSymbol: (symbol)=>{
-      let action = changeNewPostSymbolActionCreator(symbol);
-      dispatch(action);
-    }
   };
 };
 

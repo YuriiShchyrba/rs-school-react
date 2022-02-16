@@ -1,44 +1,42 @@
 import React from 'react';
 import User from './User';
-import * as axios from 'axios';
+import Preloader from '../../common/Preloader';
 
-// const instance = axios.create({
-//   withCredentials: true,
-//   baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-//   headers: {
-//     'API-KEY': 'acc7c11b-cfc1-4d83-b8b0-2eee9bfb02bc',
-//   },
-// });
-
-class Users extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.instance = axios.create({
-      withCredentials: true,
-      baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-      headers: {
-        'API-KEY': 'acc7c11b-cfc1-4d83-b8b0-2eee9bfb02bc',
-      },
-    });
-  }
-
-  componentDidMount(){
-    this.instance.get('users').then((response) => {
-      this.props.setUsers(response.data.items);
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        {this.props.usersData.users.map((user) => {
-          return <User user={user} key={user.id} toggleFollow={this.props.toggleFollow} />;
-        })}
-      </div>
+const Users = (props) => {
+  let pagesCounter = Math.ceil(props.totalUsersCount / props.usersPerPage);
+  let pages = [];
+  for (let i = 1; i <= 10; i++) {
+    pages.push(
+      <span
+        className={props.currentPage === i ? 'current-page page' : 'page'}
+        key={i}
+        onClick={props.onPageChange}
+      >
+        {i}
+      </span>
     );
   }
-}
+  return (
+    <div>
+      {pages}
+      {props.isFetching ? (
+        <Preloader />
+      ) : (
+        props.usersData.users.map((user) => {
+          return (
+            <User
+              user={user}
+              key={user.id}
+              toggleFollow={props.toggleFollow}
+              toggleIsFollowedProcessed={props.toggleIsFollowedProcessed}
+              followingProcess={props.followingProcess}
+            />
+          );
+        })
+      )}
+    </div>
+  );
+};
 
 // const Users = (props) => {
 

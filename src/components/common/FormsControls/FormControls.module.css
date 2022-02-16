@@ -1,0 +1,16 @@
+.formControl.error input,
+.formControl.error textarea{
+    border: 3px solid red !important;
+    resize: none;
+    outline: none;
+}
+
+.formControl.error span{
+    color: red;
+}
+
+.formSubmitError{
+    color: red;
+    border: 3px solid red !important;
+    display:inline-block;
+}

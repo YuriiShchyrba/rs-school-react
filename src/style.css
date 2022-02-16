@@ -18,6 +18,10 @@ button{
   border-color: #66fcf1;
 }
 
+button:disabled{
+  color: red;
+}
+
 .header {
   background-color: #0b0c10;
 }
@@ -29,6 +33,10 @@ button{
 .logo {
   color: #66fcf1;
   font-size: 50px;
+}
+
+.login{
+  color: white;
 }
 
 .wrapper {
@@ -314,4 +322,12 @@ button{
 
 .footer {
   background-color: #0b0c10;
+}
+
+.page{
+  cursor: pointer;
+}
+
+.current-page{
+  color:red;
 }

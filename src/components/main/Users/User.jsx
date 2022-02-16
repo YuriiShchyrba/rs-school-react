@@ -1,21 +1,36 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import userPhoto from '../../../assets/user.png';
-
 class User extends React.Component {
-
-  onToggleFollow = () => {
-    this.props.toggleFollow(this.props.user.id);
-  }
+  onToggleFollow = (user) => {
+    this.props.toggleFollow(user);
+  };
 
   render() {
     return (
       <div>
         <div>
-          <img src={this.props.user.photoSrc ? this.props.user.photoSrc : userPhoto} alt="" />
-          {this.props.user.follow ? (
-            <button onClick={this.onToggleFollow}>Unfollow</button>
+          <NavLink to={'/profile/' + this.props.user.id}>
+            <img src={this.props.user.photoSrc ? this.props.user.photoSrc : userPhoto} alt="" />
+          </NavLink>
+          {this.props.user.followed ? (
+            <button
+              disabled={this.props.followingProcess.some((id) => this.props.user.id == id)}
+              onClick={() => {
+                this.onToggleFollow(this.props.user);
+              }}
+            >
+              Unfollow
+            </button>
           ) : (
-            <button onClick={this.onToggleFollow}>Follow</button>
+            <button
+              disabled={this.props.followingProcess.some((id) => this.props.user.id == id)}
+              onClick={() => {
+                this.onToggleFollow(this.props.user);
+              }}
+            >
+              Follow
+            </button>
           )}
         </div>
         <div>

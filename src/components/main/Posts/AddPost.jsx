@@ -1,34 +1,31 @@
 import React from 'react';
+import {Field , reduxForm} from 'redux-form';
+import {maxLengthCreator, requiredField} from '../../../utils/validators/index';
+import { Textarea } from '../../common/FormsControls/FormsControls';
+
+const maxLength10Symbols = maxLengthCreator(15);
 
 class AddPost extends React.Component{
-
-  onAddPost = () => {
-    this.props.addPost();
-  }
-
-  onChangeNewPostSymbol = (e) => {
-    this.props.changeNewPostSymbol(e.target.value);
-  }
-
   render() {
     return (
-      <form className="add-post__form">
-        <label htmlFor="post-textarea" className="add-post__label">
+      <form className="add-post__form" onSubmit={this.props.handleSubmit}>
+        <Field htmlFor="post-textarea" name='labelForTextarea' component='label' className="add-post__label">
           Add post
-        </label>
-        <textarea
-          value={this.props.postsData.postTextArea}
+        </Field>
+        <Field
           type="text"
           id="post-textarea"
-          onChange={this.onChangeNewPostSymbol}
+          name = 'addNewPostMessage'
+          component ={Textarea}
+          placeholder='Post message'
+          validate={[requiredField,maxLength10Symbols]}
         />
-        <button type="button" className="add-post__btn" onClick={this.onAddPost}>
+        <button  className="add-post__btn">
           Submit
         </button>
       </form>
     );
   }
-
 }
 
 // const AddPost = (props) => {
@@ -58,4 +55,4 @@ class AddPost extends React.Component{
 //   );
 // };
 
-export default AddPost;
+export default reduxForm({form:'addNewPost'})(AddPost);

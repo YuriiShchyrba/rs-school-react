@@ -1,24 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Message from './Message';
+import { Field, reduxForm } from 'redux-form';
+import { Textarea } from '../../common/FormsControls/FormsControls';
+import { maxLengthCreator, requiredField } from '../../../utils/validators';
 
-class Dialog extends React.Component{
-
-  constructor(props){
+class Dialog extends React.Component {
+  constructor(props) {
     super(props);
     this.path = `/messages/${props.id}`;
   }
 
+  onAddMessage = (message) => {
+    this.props.addMessage(message.addNewMessage, this.props.name);
+  };
 
-  onAddMessage = () => {
-    this.props.addMessage(this.props.dialogsData.dialogTextArea, this.props.name);
-  }
+  // onChangeNewMessageSymbol = (e) => {
+  //   this.props.changeNewMessageSymbol(e.target.value);
+  // };
 
-  onChangeNewMessageSymbol = (e) => {
-    this.props.changeNewMessageSymbol(e.target.value);
-  }
-
-  render(){
+  render() {
     let messages = this.props.messages.map((messageState, ind) => {
       return (
         <Message
@@ -39,23 +40,30 @@ class Dialog extends React.Component{
         </div>
         <div className="dialog__text-info">
           {messages}
-          <form className="dialog__sent-message-form">
-            <textarea
-              value={this.props.dialogsData.dialogTextArea}
-              className="dialog__sent-message-textarea"
-              onChange={this.onChangeNewMessageSymbol}
-            ></textarea>
-            <button type="button" className="dialog__sent-message-btn" onClick={this.onAddMessage}>
-              Sent
-            </button>
-          </form>
+          <AddMessageReduxForm onSubmit={this.onAddMessage} />
         </div>
       </div>
     );
   }
-
 }
 
+const maxLength30Symbols = maxLengthCreator(30);
+
+const AddMessageForm = (props) => {
+  return (
+    <form className="dialog__sent-message-form" onSubmit={props.handleSubmit}>
+      <Field
+        component={Textarea}
+        validate={[requiredField,maxLength30Symbols]}
+        name="addNewMessage"
+        className="dialog__sent-message-textarea"
+      ></Field>
+      <button className="dialog__sent-message-btn">Sent</button>
+    </form>
+  );
+};
+
+const AddMessageReduxForm = reduxForm({ form: 'addMessageForm' })(AddMessageForm);
 
 // const Dialog = (props) => {
 //   let path = `/messages/${props.id}`;

@@ -15,7 +15,6 @@ class Dialogs extends React.Component{
           id={element.id}
           messages={element.messages}
           addMessage={this.props.addMessage}
-          changeNewMessageSymbol={this.props.changeNewMessageSymbol}
         />
       );
     });

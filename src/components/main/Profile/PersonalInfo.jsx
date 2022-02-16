@@ -1,17 +1,15 @@
 import React from 'react';
 
-class PersonalInfo extends React.Component{
-
-  constructor (props) {
-    super(props);
-    this.dob = props.personalInfo.dateOfBirth;
-    this.city = props.personalInfo.city;
-    this.friends = props.personalInfo.friends;
-    this.audios = props.personalInfo.audios;
-    this.videos = props.personalInfo.videos;
-  }
-
-  render(){
+class PersonalInfo extends React.Component {
+  render() {
+    let github = 'YuriiShchyrba';
+    let vk = 'Yurii Shchyrba';
+    let instagram = '@yuriishchyrba';
+    if (this.props.contacts) {
+      github = this.props.contacts.github;
+      vk = this.props.contacts.vk;
+      instagram = this.props.contacts.instagram;
+    }
     return (
       <div className="personal-info__wrapper">
         <div className="personal-info__headers">
@@ -20,18 +18,27 @@ class PersonalInfo extends React.Component{
           <h5>Friends</h5>
           <h5>Audios</h5>
           <h5>Videos</h5>
+          <h5>Looking for Job</h5>
+          <h5>Description</h5>
+          <h5>GitHub</h5>
+          <h5>VK</h5>
+          <h5>Instagram</h5>
         </div>
         <div className="personal-info__info">
-          <p>{this.dob}</p>
-          <p>{this.city}</p>
-          <p>{this.friends}</p>
-          <p>{this.audios}</p>
-          <p>{this.videos}</p>
+          <p>{this.props.personalInfo.dateOfBirth}</p>
+          <p>{this.props.personalInfo.city}</p>
+          <p>{this.props.personalInfo.friends}</p>
+          <p>{this.props.personalInfo.audios}</p>
+          <p>{this.props.personalInfo.videos}</p>
+          <p>{this.props.lookingForJob ? this.props.lookingForJob.toString() : 'Yes'}</p>
+          <p>{this.props.description ? this.props.description : 'Full Stack Developer'}</p>
+          <p>{github}</p>
+          <p>{vk}</p>
+          <p>{instagram}</p>
         </div>
       </div>
     );
   }
-
 }
 
 // const PersonalInfo = (props) => {
